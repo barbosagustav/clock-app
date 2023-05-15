@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: white;
+
+    .container {
+    background-image: url('../../src/images/desktop/bg-image-daytime.jpg');
+    background-color: rgba(0, 0, 0, 0.9);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    }
+  }
+
+  p{
+    font-size: 18px;
+    width: 573px;
+    height: 125px;
+    padding-top: 56px;
+    padding-left: 165px;
+}
+
+.nav{
+    width: 1110px;
+    height: 288px;
+    display: flex;
+    margin-left: 165px;
+    margin-top: 144px;
+
+    .greetings{
+        display: block;
+        font-size: 20px;
+    }
+
+    .info{
+        width: 50%;
+    }
+
+    .button{
+        width: 50%;
+
+        button{
+            font-size: 16px;
+            margin-top: 220px;
+            float: right;
+            width: 146px;
+            height: 56px;
+            background-color: #FFFFFF;
+            border: none;
+            border-radius: 30px;
+        }
+    }
+
+    .hour{
+        font-size: 170px;
+
+        .time-zone{
+            font-size: 40px;
+        }
+    }
+
+    .city{
+        font-size: 24px;
+    }
+}
