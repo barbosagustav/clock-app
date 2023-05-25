@@ -4,68 +4,249 @@
 }
 
 body {
-    height: 100vh;
     font-family: 'Inter', sans-serif;
     color: white;
-
-    .container {
     background-image: url('../../src/images/desktop/bg-image-daytime.jpg');
     background-color: rgba(0, 0, 0, 0.9);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 100%;
-    }
-  }
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
 
-  p{
-    font-size: 18px;
-    width: 573px;
-    height: 125px;
-    padding-top: 56px;
-    padding-left: 165px;
-}
+    .container{
+        position: relative;
+        display: inline-block;
+        align-items: center;
+        width: 100%;
+        height: 100%;
 
-.nav{
-    width: 1110px;
-    height: 288px;
-    display: flex;
-    margin-left: 165px;
-    margin-top: 144px;
+        .text {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            left: 13%;
+            top: 10%;
+            width: 35%;
+            font-size: 18px;
 
-    .greetings{
-        display: block;
-        font-size: 20px;
-    }
+            @media (max-width: 1024px) {
+                font-size: 14px;
+            }
 
-    .info{
-        width: 50%;
-    }
+            @media (max-width: 667px) {
+                font-size: 12px;
+            }
+        }
 
-    .button{
-        width: 50%;
 
-        button{
-            font-size: 16px;
-            margin-top: 220px;
-            float: right;
-            width: 146px;
-            height: 56px;
-            background-color: #FFFFFF;
-            border: none;
-            border-radius: 30px;
+        .nav{
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            bottom: 15%;
+            left: 13%;
+            width: 80%;
+            display: flex;
+
+
+            @media (max-width: 1024px) {
+                min-height: 200px;
+                display: flex;
+                flex-direction: column;
+                }
+
+            .greetings{
+                margin-left: 10px;
+                margin-top: 3px;
+                min-width: 230px;
+                font-size: 1em;
+
+                @media (max-width: 1024px) {
+                }
+                @media (max-width: 667px) {
+                    font-size: 0.8em;
+                }
+            }
+
+            .display_flex {
+                display: flex;
+            }
+            .info{
+                width: 70%;
+            }
+
+            .button{
+                width: 30%;
+
+
+                button{
+                    border: solid red;
+                    color: #303030;
+                    cursor: pointer;
+                    font-size: 1em;
+                    margin-top: 60%;
+                    float: right;
+                    width: 90px;
+                    height: 40px;
+                    background-color: #ffffff;
+                    border: none;
+                    border-radius: 30px;
+
+                    @media (max-width: 1024px) {
+                        margin-top: 8%;
+                        float: left;
+                        width: 70px;
+                        height: 30px;
+                        font-size: 0.9em;
+                    }
+                    
+                    @media (max-width: 667px) {
+                        width: 60px;
+                        height: 30px;
+                        font-size: 0.8em;
+                    }
+                }
+            }
+
+            .hour{
+                font-size: 12vw;
+
+                @media (max-width: 1024px) {
+                    font-size: 15vw;
+                }
+
+                @media (max-width: 667px) {
+                    font-size: 25vw;
+                }
+
+                .time-zone{
+                    font-size: 42px;
+                }
+            }
+
+            .country{
+                font-size: 1em;
+            }
+
+            .abreviacao{
+                font-size: 1em;
+
+                @media (max-width: 1024px) {
+                }
+            }
         }
     }
 
-    .hour{
-        font-size: 170px;
+    
+    .inform {
+        color:#303030;
+        position: relative;
+        display: none;
+        background-color: white;
+        opacity: 75%;
+        height: 100%;
 
-        .time-zone{
-            font-size: 40px;
+        &__container {
+            position: absolute;
+            top: 5%;
+            bottom: 55%;
+            left: 10%;
+            color: #303030;
+            width: 80%;
+            display: flex;
+
+            @media (max-width: 667px) {
+                flex-direction: column;
+            }
+
+
+            &__um {
+                width: 60%;
+
+                @media (max-width: 667px) {
+                    width: 100%;
+                }
+
+
+
+                    h4 {
+                        font-size: 15px;
+                        width: 120%;
+
+                        @media (max-width: 1024px) {
+                            font-size: 13px;
+                        }
+                        @media (max-width: 667px) {
+                            font-size: 10px;
+                            
+                        margin-bottom: 30px;
+                        }
+                    }
+
+                    h3 {
+                        width: 100%;
+                        font-size: 56px;
+                        margin-bottom: 80px;
+
+                        @media (max-width: 1024px) {
+                            font-size: 40px;
+                        }
+                        @media (max-width: 667px) {
+                            font-size: 20px;
+                            margin-bottom: 30px;
+                        }
+                    }
+            }
+        
+
+            &__dois {
+                padding-left: 100px;
+                width: 40%;
+                border-left: solid 0.5px #303030;;
+
+                @media (max-width: 667px) {
+                    padding-left: 0px;
+                    width: 100%;
+                    border-left: none;
+                }
+
+                
+
+                h4 {
+                    font-size: 15px;
+                    width: 120%;
+
+                    @media (max-width: 1024px) {
+                        font-size: 13px;
+                    }
+                    @media (max-width: 667px) {
+                        font-size: 10px;
+                        margin-bottom: 30px;
+                    }
+                }
+
+                h3 {
+                    width: 100%;
+                    font-size: 56px;
+                    margin-bottom: 80px;
+
+                    @media (max-width: 1024px) {
+                        font-size: 40px;
+                    }
+                    @media (max-width: 667px) {
+                        font-size: 20px;
+                        margin-bottom: 30px;
+                        
+                    }
+                }
+            }
         }
+
+            .display_flex__inform {
+                @media (max-width: 667px) {
+                    display: flex;
+                }
+            }
     }
 
-    .city{
-        font-size: 24px;
-    }
 }

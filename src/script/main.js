@@ -1,22 +1,18 @@
-const hour = document.querySelector('.hour')
+fetch('https://api.ipify.org?format=json')
+  .then(response => response.json())
+  .then(data => {
+    const userIP = data.ip;
 
-const ipUser = "https://api.ipify.org/?format=json"
-const apiUser = "http://worldtimeapi.org/api/" ${visitorIpAddress}
-
-fetch(ipUser)
-  .then(function(response) {
-    return response.json();
+    fetch(`https://freegeoip.app/json/${userIP}`)
+      .then(response => response.json())
+      .then(data => {
+        const country = data.country_name;
+        console.log(`País do usuário: ${country}`);
+      })
+      .catch(error => {
+        console.error('Erro ao obter informações de geolocalização:', error);
+      });
   })
-  .then(function(data) {
-    var visitorIpAddress = data.ip;
-  })
-
-
-fetch(apiUser)
-        .then(function(resposta){
-            return resposta.json();
-        })
-        .then(function(json)
-        { 
-            hour.innerHTML = json.timezone;
-        })
+  .catch(error => {
+    console.error('Erro ao obter endereço IP:', error);
+  });
