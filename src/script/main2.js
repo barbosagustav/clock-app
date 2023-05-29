@@ -39,6 +39,7 @@ const iconGreetings = document.querySelector('.icon_greetings')
           // Obtém a hora com base no IP do visitante usando a API do World Time
           fetch("http://worldtimeapi.org/api/ip")
           .then(function(resposta){
+            
               return resposta.json();
           })
           .then(function(json)
