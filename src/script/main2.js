@@ -10,68 +10,67 @@ const weekNumber = document.querySelector('.week_number')
 const iconGreetings = document.querySelector('.icon_greetings')
 
 
-    // Obtém o IP do visitante usando uma API de terceiros
+// Obtém o IP do visitante usando uma API de terceiros
 
 
-    // Fazendo uma requisição HTTP para obter o país com base no IP
-      function obterPaisPorIP() {
+// Fazendo uma requisição HTTP para obter o país com base no IP
+function obterPaisPorIP() {
 
-        const url = 'http://ip-api.com/json/';
-        fetch(url)
-          .then(response => response.json())
-          .then(data => {
-            const countryApi = data.country;
-            const countryCodeApi = data.countryCode;
-            
-            country.innerHTML = countryApi + ',';
-            abreviacao.innerHTML = countryCodeApi;
-            timeZone.innerHTML = data.city + '/' + data.region;
-          });
-      }
+  const url = 'http://ip-api.com/json/';
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const countryApi = data.country;
+      const countryCodeApi = data.countryCode;
 
-
-      function getCurrentTime() {
-        fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => {
-          const userIP = data.ip;
-
-          // Obtém a hora com base no IP do visitante usando a API do World Time
-          fetch("http://worldtimeapi.org/api/ip")
-          .then(function(resposta){
-            
-              return resposta.json();
-          })
-          .then(function(json)
-          { 
-            const apiTime = json.utc_datetime;
-            const formattedTime = new Date(apiTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            hour.innerHTML = formattedTime;
-            dayYear.innerHTML = json.day_of_year;
-            dayWeek.innerHTML = json.day_of_week;
-            weekNumber.innerHTML = json.week_number
-
-            const currentHour = new Date().getHours();
-
-            if (currentHour >= 5 && currentHour < 12) {
-                greetings.textContent = " GOOD MORNING, IT'S CURRENTLY" ;
-              } else if (currentHour >= 12 && currentHour < 18) {
-                greetings.textContent =  "GOOD AFTERNON, IT'S CURRENTLY";
-                
-              }
-              else {
-                greetings.textContent = "GOOD NIGHT, IT'S CURRENTLY"
-                body.style.backgroundImage = "url('/src/images/desktop/bg-image-nighttime.jpg')";
-                iconGreetings.src = "./src/images/desktop/icon-moon.svg"
+      country.innerHTML = countryApi + ',';
+      abreviacao.innerHTML = countryCodeApi;
+      timeZone.innerHTML = data.city + '/' + data.region;
+    });
+}
 
 
-              }
-          })
+function getCurrentTime() {
+  fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => {
+      const userIP = data.ip;
+
+      // Obtém a hora com base no IP do visitante usando a API do World Time
+      fetch("http://worldtimeapi.org/api/ip")
+        .then(function (resposta) {
+
+          return resposta.json();
         })
-      }
+        .then(function (json) {
+          const apiTime = json.utc_datetime;
+          const formattedTime = new Date(apiTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          hour.innerHTML = formattedTime;
+          dayYear.innerHTML = json.day_of_year;
+          dayWeek.innerHTML = json.day_of_week;
+          weekNumber.innerHTML = json.week_number
+
+          const currentHour = new Date().getHours();
+
+          if (currentHour >= 5 && currentHour < 12) {
+            greetings.textContent = " GOOD MORNING, IT'S CURRENTLY";
+          } else if (currentHour >= 12 && currentHour < 18) {
+            greetings.textContent = "GOOD AFTERNON, IT'S CURRENTLY";
+
+          }
+          else {
+            greetings.textContent = "GOOD NIGHT, IT'S CURRENTLY"
+            body.style.backgroundImage = "url('/src/images/desktop/bg-image-nighttime.jpg')";
+            iconGreetings.src = "./src/images/desktop/icon-moon.svg"
 
 
-      //Evento de click
+          }
+        })
+    })
+}
+
+
+//Evento de click
 const icon = document.querySelector('.icon')
 const button = document.querySelector('button')
 const navSession = document.querySelector('.nav')
@@ -84,12 +83,13 @@ var isTabVisible = false;
 
 function showTab() {
   if (isTabVisible) {
-  informSession.style.display = 'none'
-  text.style.display = 'block'
-  container.style.height = '100%'
-  //navSession.style.marginTop = '10vw'
-  button.textContent = 'M o r e'
-  isTabVisible = false;}
+    informSession.style.display = 'none'
+    text.style.display = 'block'
+    container.style.height = '100%'
+    //navSession.style.marginTop = '10vw'
+    button.textContent = 'M o r e'
+    isTabVisible = false;
+  }
   else {
     informSession.style.display = 'block'
     text.style.display = 'none'
@@ -100,13 +100,13 @@ function showTab() {
   }
 }
 
-button.addEventListener('click', function(){
-    showTab()
+button.addEventListener('click', function () {
+  showTab()
 })
 
 
-      setInterval(getCurrentTime, 1000)
-      obterPaisPorIP();
+setInterval(getCurrentTime, 1000)
+obterPaisPorIP();
 
 
 
